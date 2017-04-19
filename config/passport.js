@@ -2,6 +2,19 @@ var LocalStrategy   = require('passport-local').Strategy;
  var User            = require('../models/user');
 
  module.exports = function(passport) {
+
+ 	passport.serializeUser(function(user, callback) {
+      callback(null, user.id);
+    });
+
+    passport.deserializeUser(function(id, callback) {
+      User.findById(id, function(err, user) {
+          callback(err, user);
+      });
+    });
+
+
+
    passport.use('local-signup', new LocalStrategy({
      usernameField : 'email',
      passwordField : 'password',
@@ -22,18 +35,12 @@ var LocalStrategy   = require('passport-local').Strategy;
 		newUser.local.email    = email;
 		newUser.local.password = newUser.encrypt(password);
 
-	newUser.save(function(err) {
-	  if (err) throw err;
-	  return callback(null, newUser);
-	});
-      }
+			newUser.save(function(err) {
+			  if (err) throw err;
+			  return callback(null, newUser);
+			});
+      	}
     });
+  }));
 
-
-
-
-
-
-
-   }));
 };

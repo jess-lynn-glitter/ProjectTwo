@@ -17,3 +17,8 @@ plan of action:
 	google how to jquery ajax to json. 
 
 	need to install jquery on my front end now.
+
+
+4/19 (yikes...):  
+
+---am not officially approved to do project 2. Have just revamped my file layout to reflect the layout in the passport lesson plan. In doing so I also have to rework quite a few things. Am currently setting up passport right now though. Integrating this though will require me to add a new "collection" to my mongodb for Users. Each user will then have the "spots" collection documents that relate to them "referenced" in their schema...plugging away now...

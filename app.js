@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-mongoose.connect('mongodb://localhost/SurfSpot_Project'); 
+mongoose.connect('mongodb://localhost/local-authentication-with-passport'); 
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -26,4 +26,4 @@ app.use(express.static(__dirname + '/public'));
 var routes = require('./config/routes');
 app.use(routes);
 
-app.list(3000);
+app.listen(3000);
