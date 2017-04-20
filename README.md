@@ -31,6 +31,13 @@ plan of action:
 
 -am currently trying to integrate my schemas for surfspots and users so that each unique user has a unique set of surfspots. **also, just realized that I need to change the redirect for when you signup as a new user it needs to go to /surfspots not '/'**
 
+--Need to figure out how to remove files from remote repository but not on local. accidentally uploaded my node_modules folder.
+
+--Okay, figured out how to send an Ajax request on click to my backend which sends a post request to my backend and saves the info recorded from the click event on the map into the database - NICE./////  
+	Now: what comes next is taking this info from a submit button from an information box that will pop up on click on the map, it will need to save this info from the box and send THAT to the database, in order to get spot name and conditions?? (this field may have to change -- to approach later).  Also, this info will have to be added to the current user's spots. So there will be a save going into the database but also into the "Spot" database at large... and then saved from there.
+
+	also, i want "saved" spots to show up for a user immediately. so, on init map I want the map to already have markers appearing based off of the lat and lng of the spots in the database.
+
 
 
 

@@ -28,4 +28,8 @@ router.route("/logout")
 router.route('/surfspots')
 .get(surfController.getSurfMap) //somethingController.getYourSurfMap)
 
+router.route('/surfspots')
+.post(surfController.postSurfSpot)
+
+
 module.exports = router

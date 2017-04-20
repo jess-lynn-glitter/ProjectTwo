@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-mongoose.connect('mongodb://localhost/Surfspot_Project'); 
+// mongoose.connect('mongodb://localhost/Surfspot_Project'); 
 
 app.use(morgan('dev')); 
 app.use(cookieParser());

@@ -41,7 +41,7 @@ function initMap() {
           };
 
           $.ajax({
-            url:'/api/surfspots',
+            url:'/surfspots',
             type: 'POST',
             data: spotDetails,
             success:
