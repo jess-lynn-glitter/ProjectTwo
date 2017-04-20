@@ -22,3 +22,15 @@ plan of action:
 4/19 (yikes...):  
 
 ---am not officially approved to do project 2. Have just revamped my file layout to reflect the layout in the passport lesson plan. In doing so I also have to rework quite a few things. Am currently setting up passport right now though. Integrating this though will require me to add a new "collection" to my mongodb for Users. Each user will then have the "spots" collection documents that relate to them "referenced" in their schema...plugging away now...
+----
+//...Has taken awhile but am not fully synced up with a logged-in homepage as well as my original javascript
+
+
+
+4/20: heh heh, ok no but really...
+
+-am currently trying to integrate my schemas for surfspots and users so that each unique user has a unique set of surfspots. **also, just realized that I need to change the redirect for when you signup as a new user it needs to go to /surfspots not '/'**
+
+
+
+

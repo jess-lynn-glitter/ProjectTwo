@@ -1,10 +1,5 @@
 
-
-
 console.log("app is working!");
-
-
-
 
 
 
@@ -34,11 +29,43 @@ function initMap() {
             position: latLng,
             map: map
           });
+
+          var spotLat = latLng.lat();
+          var spotLng = latLng.lng();
+
+          var spotDetails = {
+            name: 'SurfSpotName',
+            lat: spotLat,
+            lng: spotLng,
+            currentConditions: 'Head-High'
+          };
+
+          $.ajax({
+            url:'/api/surfspots',
+            type: 'POST',
+            data: spotDetails,
+            success:
+            console.log("Sucess")
+          });
+
           map.panTo(latLng);
-          console.log(latLng.lat());
-          console.log(latLng.lng());  //// this accesses the lat (and lng if needed) of the point created.
+          console.log(spotLat);
+          console.log(spotLng);  //// this accesses the lat (and lng if needed) of the point created.
           
         }
+
+ // $.ajax({
+ //        url: '/api/albums',
+ //        type: 'POST',
+ //        data: formData,
+ //        success:
+ //        function makeAlbum(data) {
+ //          renderAlbum(data);
+ //         $(this).trigger('reset');
+        // function saveSurfData()
+
+
+
 }
 
 
