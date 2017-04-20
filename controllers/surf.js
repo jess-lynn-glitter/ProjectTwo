@@ -2,7 +2,7 @@
 
 // GET /
 function getSurfMap(req, res) {  
-  res.render('index');
+  res.render('surfHome');
 }
 
 
