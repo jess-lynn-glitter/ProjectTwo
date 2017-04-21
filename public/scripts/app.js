@@ -102,42 +102,54 @@ function initMap() {
       console.log(spotLng);  //// this accesses the lat (and lng if needed) of the point created.
       
     }
+    
 
     $.get('/api/surfspots/')
       .done(function(data) {
-        for(i=0; i<data.length;i++) {
 
+        for(i=0; i<data.length;i++) {
+          
           let markerObject = new google.maps.Marker({
           position: (new google.maps.LatLng({lat: data[i].lat, lng: data[i].lng})),
           map: map,
           name: data[i].name
         });
-
+          let surfWindow = new google.maps.InfoWindow({
+            content: "Spot Name: "
+          });
+          
+          surfWindowopen = false;
           markerObject.addListener('click', function(e) {
-          infoWindow.open(map, markerObject);
-          infoWindow.setContent(infoWindow.content + "sick spot breh"); //name of spot goes here); //can be anything
+            if(surfWindowopen === true){
+              surfWindow.close();
+              surfWindowopen = false;
+            } else {surfWindow.open(map, markerObject);
+              surfWindow.setContent("Spot Name: " + data[0].name); //name of spot goes here); //can be anything
+              surfWindowopen = true;
+            }
         });
+          
 
         }
-       // console.log(data[0].lat);
-        
+    
     });
 
 
 
+
 }
-
-
-
-
-
-
-
-
-
-// $.get('https://ga-cat-rescue.herokuapp.com/api/cats')
-//     .done(function(data){
-//       console.log(data);
+// google.maps.event.addListener(marker, 'click', function() {
+//         if(!marker.open){
+//             infowindow.open(map,marker);
+//             marker.open = true;
+//         }
+//         else{
+//             infowindow.close();
+//             marker.open = false;
+//         }
+//         google.maps.event.addListener(map, 'click', function() {
+//             infowindow.close();
+//             marker.open = false;
+//         });
 //     });
-
 
