@@ -108,6 +108,8 @@ function initMap() {
       .done(function(data) {
 
         for(i=0; i<data.length;i++) {
+          let surfSpotName = data[i].name;
+          let surfSpotConditions = data[i].currentConditions;
           
           let markerObject = new google.maps.Marker({
           position: (new google.maps.LatLng({lat: data[i].lat, lng: data[i].lng})),
@@ -124,7 +126,8 @@ function initMap() {
               surfWindow.close();
               surfWindowopen = false;
             } else {surfWindow.open(map, markerObject);
-              surfWindow.setContent("Spot Name: " + data[0].name); //name of spot goes here); //can be anything
+              surfWindow.setContent("Spot Name: " + surfSpotName + "<br>"
+                                  + "Spot Conditions: " + surfSpotConditions); //name of spot goes here); //can be anything
               surfWindowopen = true;
             }
         });
