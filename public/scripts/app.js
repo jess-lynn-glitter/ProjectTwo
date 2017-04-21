@@ -1,6 +1,34 @@
 
 console.log("app is working!");
 
+$(document).ready(function(){
+    console.log( "ready!" );
+});
+
+  
+
+ // var birdMarker = new google.maps.Marker({
+ //      position: theBirdSanctuary,
+ //      map: map,
+ //      title: 'The Bird Sanctuary'
+ //    });
+
+//testing ajax request to get all spots
+
+//when the page loads we need to get data from the backend, via ajax
+  //use ajax to hit route to get all spots
+  //for each spot we got back, run this function
+    //get the lat, long, name from spots
+    // var markerObject = new g.m.m({
+    //   position: currentSpot.pos,
+    //   map: map,
+    //   content: currentSpot.content
+//     })
+// var spots = [
+// {
+//   "position": {"lat": 41.508354, "lng":-71.070333}, {}
+// ];
+
 
 
 function initMap() {
@@ -18,8 +46,9 @@ function initMap() {
 
     
      var infoWindow = new google.maps.InfoWindow({
-      content: "this shouldn't be here"
+      content: "Spot Name: "
     });
+
 
     var birdMarker = new google.maps.Marker({
     	position: theBirdSanctuary,
@@ -27,39 +56,22 @@ function initMap() {
       title: 'The Bird Sanctuary'
     });
 
-    birdMarker.addListener('click', function() {
+    birdMarker.addListener('click', function(e) {
+      getSpotByLatLng(e.latLng, map);
+
       infoWindow.open(map, birdMarker);
-      infoWindow.setContent("THIS IS CONTENT JUST FOR BIRD SANC");
+      infoWindow.setContent(infoWindow.content); //name of spot goes here); //can be anything
     });
    
 
 
     map.addListener('click', function(e) {
-      // placeMarkerAndPanTo(e.latLng, map);
+      console.log(e);
+      placeMarkerAndPanTo(e.latLng, map);
 
 // if window is open) then close it and return) else add a new spot
 
     });
-
-//      var infowindow = new google.maps.InfoWindow({
-//     content: contentString
-//   });
-
-//   var marker = new google.maps.Marker({
-//     position: uluru,
-//     map: map,
-//     title: 'Uluru (Ayers Rock)'
-//   });
-//   marker.addListener('click', function() {
-//     infowindow.open(map, marker);
-//   });
-// }
-
-
-
-
-
-
 
 
     function placeMarkerAndPanTo(latLng, map) {
@@ -75,7 +87,7 @@ function initMap() {
         name: 'SurfSpotName',
         lat: spotLat,
         lng: spotLng,
-        currentConditions: 'Head-High'
+        currentConditions: 'Gnarly-Sized'
       };
 
       $.ajax({
@@ -92,9 +104,30 @@ function initMap() {
       
     }
 
+    $.get('/api/surfspots/')
+      .done(function(data) {
+       // console.log(data[0].lat);
+        var markerObject = new google.maps.Marker({
+          position: (new google.maps.LatLng({lat: data[0].lat, lng: data[0].lng})),
+          map: map
+        });
+    });
+
+
+
 }
 
 
 
+
+
+
+
+
+
+// $.get('https://ga-cat-rescue.herokuapp.com/api/cats')
+//     .done(function(data){
+//       console.log(data);
+//     });
 
 

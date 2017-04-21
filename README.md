@@ -37,6 +37,8 @@ plan of action:
 	Now: what comes next is taking this info from a submit button from an information box that will pop up on click on the map, it will need to save this info from the box and send THAT to the database, in order to get spot name and conditions?? (this field may have to change -- to approach later).  Also, this info will have to be added to the current user's spots. So there will be a save going into the database but also into the "Spot" database at large... and then saved from there.
 
 	also, i want "saved" spots to show up for a user immediately. so, on init map I want the map to already have markers appearing based off of the lat and lng of the spots in the database.
+	
+	I am trying to have all of the surfspots in my database accessible from the front end...which they already are... however, I want to be able to access a specific spot ba
 
 
 

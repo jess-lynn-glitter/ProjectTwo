@@ -1,9 +1,42 @@
 var db = require('../models');
 
-// GET /
+//**STATIC HOMEPAGE**
 function getSurfMap(req, res) {  
   res.render('surfHome');
 }
+
+
+
+//**GET ROUTE**
+function getAllSpots(req, res) {
+	db.Surfspot.find({}, function(err, surfspots){
+	res.json(surfspots);
+	});
+}
+
+//**GET BY ID**
+function getOneSpot(req, res) {
+console.log(req.params.spotLat);//  *******
+var spotLat = req.params.spotLat;
+db.Surfspot.find({lat: spotLat}, function(err, surfspot){
+	console.log(surfspot);
+	res.json(surfspot);
+});
+}
+
+
+//**DELETE A SPOT ROUTE**
+function deleteSpot(req, res) {
+	var spotConditions = req.params.conditions;
+	db.Surfspot.remove({currentConditions: req.params.conditions}, function(err, surfspot){
+		if(err) {return console.log('remove error' + err);}
+	res.json(surfspot);
+	});
+}
+
+
+
+//**NEW SPOT POST ROUTE**
 
 function postSurfSpot(req, res) {
 	console.log(req.body);
@@ -25,7 +58,10 @@ function postSurfSpot(req, res) {
 
 module.exports = {
 	getSurfMap: getSurfMap,
-	postSurfSpot: postSurfSpot
+	postSurfSpot: postSurfSpot,
+	getAllSpots: getAllSpots,
+	getOneSpot: getOneSpot,
+	deleteSpot: deleteSpot
 };
 
 
