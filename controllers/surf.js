@@ -14,23 +14,23 @@ function getAllSpots(req, res) {
 	});
 }
 
-//**GET BY ID**
-function getOneSpot(req, res) {
-console.log(req.params.spotLat);//  *******
-var spotLat = req.params.spotLat;
-db.Surfspot.find({lat: spotLat}, function(err, surfspot){
-	console.log(surfspot);
-	res.json(surfspot);
-});
-}
+//**GET BY ID**(NOT CERTAIN THIS IS USEFUL)
+// function getOneSpot(req, res) {
+// console.log(req.params.spotLat);//  *******
+// var spotLat = req.params.spotLat;
+// db.Surfspot.find({lat: spotLat}, function(err, surfspot){
+// 	console.log(surfspot);
+// 	res.json(surfspot);
+// });
+// }
 
 
 //**DELETE A SPOT ROUTE**
 function deleteSpot(req, res) {
-	var spotConditions = req.params.conditions;
-	db.Surfspot.remove({currentConditions: req.params.conditions}, function(err, surfspot){
+	var spotId= req.params.conditions;
+	db.Surfspot.remove({currentConditions: spotId}, function(err, surfspots){
 		if(err) {return console.log('remove error' + err);}
-	res.json(surfspot);
+		res.json(console.log("successful delete"));
 	});
 }
 
@@ -60,7 +60,6 @@ module.exports = {
 	getSurfMap: getSurfMap,
 	postSurfSpot: postSurfSpot,
 	getAllSpots: getAllSpots,
-	getOneSpot: getOneSpot,
 	deleteSpot: deleteSpot
 };
 

@@ -94,7 +94,7 @@ function initMap() {
         type: 'POST',
         data: spotDetails,
         success:
-        console.log("Sucess")
+        console.log("Sucess for GET")
       });
 
       map.panTo(latLng);
