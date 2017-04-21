@@ -57,7 +57,6 @@ function initMap() {
     });
 
     birdMarker.addListener('click', function(e) {
-      getSpotByLatLng(e.latLng, map);
 
       infoWindow.open(map, birdMarker);
       infoWindow.setContent(infoWindow.content); //name of spot goes here); //can be anything
@@ -106,11 +105,22 @@ function initMap() {
 
     $.get('/api/surfspots/')
       .done(function(data) {
-       // console.log(data[0].lat);
-        var markerObject = new google.maps.Marker({
-          position: (new google.maps.LatLng({lat: data[0].lat, lng: data[0].lng})),
-          map: map
+        for(i=0; i<data.length;i++) {
+
+          let markerObject = new google.maps.Marker({
+          position: (new google.maps.LatLng({lat: data[i].lat, lng: data[i].lng})),
+          map: map,
+          name: data[i].name
         });
+
+          markerObject.addListener('click', function(e) {
+          infoWindow.open(map, markerObject);
+          infoWindow.setContent(infoWindow.content + "sick spot breh"); //name of spot goes here); //can be anything
+        });
+
+        }
+       // console.log(data[0].lat);
+        
     });
 
 
