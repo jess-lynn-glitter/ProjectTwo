@@ -54,13 +54,28 @@ function postSurfSpot(req, res) {
 
 }
 
+//**PUT ROUTE FOR EDITING A SPOT ***
+
+function editSpot(req, res) {
+	console.log(req.body);
+	db.Surfspot.findOne({_id: req.params.id}, function(err, surfspot){
+		if(err){console.log('Edit error: ' + err);}
+		surfspot.name = req.body.name;
+		surfspot.save(function(err,surfspot) {
+			if(err) {return console.log('save error', err);}
+		});
+		console.log('success');
+	});
+}
+
 
 
 module.exports = {
 	getSurfMap: getSurfMap,
 	postSurfSpot: postSurfSpot,
 	getAllSpots: getAllSpots,
-	deleteSpot: deleteSpot
+	deleteSpot: deleteSpot,
+	editSpot: editSpot
 };
 
 

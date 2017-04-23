@@ -50,5 +50,13 @@ plan of action:
 4/21:   fixing and finishing up the info windows. putting my crudable routes in there as well. Just need tof igure out how to make an <a> element operate a Delete and a Put route....
 
 
+include several more api's. at least one more. do the weather one. definettily. OR DO THE POKEMON. literally just get some api's in there. more routes more routes!!
+
+-Project implements login and signup with passport without any errors and includes extra functionality like a user profile image or favorites
+
+------creston air media sucks. but it would be really cool to make our own program that hacks the tv. 
+
+the plan for sunday is to read the rubric carefully. but first, finish your put route. THEN: start hitting the 3's on the rubric. you can do it.
+
 
 

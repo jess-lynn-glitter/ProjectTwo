@@ -111,17 +111,17 @@ function initMap() {
                 type: 'POST',
                 data: spotDetails,
                 success:
-                  console.log("Sucess for GET")
+                  console.log("Success for GET")
               });
-              newSpotForm.close();
+                newSpotForm.close();
             } else {
-              alert("You didn't enter a name, try again");
-              newSpotForm.close();
-              return;
+                alert("You didn't enter a name, try again");
+                newSpotForm.close();
+                return;
             }
 
           });
-      } 
+    } 
 
             
       // map.panTo(latLng);
@@ -147,8 +147,8 @@ function initMap() {
             content: "Spot Name:"
 
           });
-          
           surfWindowopen = false;
+          
           markerObject.addListener('click', function(e) {
             if(surfWindowopen === true){
               surfWindow.close();
@@ -160,13 +160,47 @@ function initMap() {
               
                                     $('#deleteLink').click(function(){
                                       $.ajax({
-                                      url:'http://localhost:3000/api/surfspots/' + surfSpotId,
-                                      type: 'DELETE',
-                                      data: surfSpotId,
-                                      success:
-                                        console.log("Sucess for GET")
-
+                                        url:'http://localhost:3000/api/surfspots/' + surfSpotId,
+                                        type: 'DELETE',
+                                        data: surfSpotId,
+                                        success: function(){
+                                          markerObject.setMap(null);
+                                          console.log('successful Remove');
+                                        }
                                       });
+                                    });
+
+                                    $('#editLink').click(function(){
+                                      surfWindow.setContent(
+                                        "<form>" +
+                                        "New Spot Name:" + "<br>" +
+                                        "<input type='text' id='spotName' name='spotName' placeholder=''>" +
+                                        "<br>" +
+                                        "<input type='submit' id='submit' value='submit'>" + "<br><br>" +
+                                        "</form>"
+                                        );
+
+                                      $('form').submit(function(){
+                                          event.preventDefault();
+                                          surfSpotName = {
+                                            name: ($('#spotName').val())
+                                          };
+                                          if(surfSpotName !== ""){
+                                            $.ajax({
+                                            url:'http://localhost:3000/api/surfspots/' + surfSpotId,
+                                            type:'PUT',
+                                            data: surfSpotName,
+                                            success:
+                                              console.log('Edit Success')
+                                            });
+                                           surfWindow.close();  
+                                          } else {
+                                            alert('You didn"t enter a name, try again');
+                                            surfWindow.close();
+                                            return;
+                                        }
+                                      });
+                                                                       
                                     });
           
                 surfWindowopen = true;

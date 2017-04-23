@@ -34,11 +34,11 @@ router.route('/surfspots')
 router.route('/api/surfspots')
 .get(surfController.getAllSpots)
 
-// router.route('/api/surfspots/:spotLat')
-// .get(surfController.getOneSpot)
+router.route('/api/surfspots/:id')
+.put(surfController.editSpot)
 
 router.route('/api/surfspots/:id')
-.delete(surfController.deleteSpot);
+.delete(surfController.deleteSpot)
 
 
 module.exports = router
