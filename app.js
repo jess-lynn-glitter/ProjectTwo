@@ -35,6 +35,12 @@ require('./config/passport')(passport);
 var routes = require('./config/routes');
 app.use(routes);
 
+//YOU WERE MISSING THIS FUNCTION????????
+app.get('/', function homepage(req,res){
+	res.sendFile(__dirname + '/views/index.ejs');
+});
+
+
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port 3000 or somethign like that.");
 });
