@@ -37,7 +37,7 @@ router.route('/api/surfspots')
 // router.route('/api/surfspots/:spotLat')
 // .get(surfController.getOneSpot)
 
-router.route('/api/surfspots/:conditions')
+router.route('/api/surfspots/:id')
 .delete(surfController.deleteSpot);
 
 

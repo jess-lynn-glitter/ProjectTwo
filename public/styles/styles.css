@@ -4,3 +4,28 @@
 	height: 400px;
 	background-color: grey;
 }
+#spotName {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	border-radius: 5px;
+
+}
+#editLinkHolder{
+	float: left;
+	width: 50%;
+}
+
+#editLink {
+	/*padding-left: 10px;*/
+}
+
+#deleteLinkHolder {
+	float: left;
+	width: 50%;
+}
+
+#deleteLink {
+	/*text-align: right;*/
+	/*position: relative;
+	left: 30px;*/
+}

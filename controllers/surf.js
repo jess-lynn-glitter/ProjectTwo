@@ -27,10 +27,10 @@ function getAllSpots(req, res) {
 
 //**DELETE A SPOT ROUTE**
 function deleteSpot(req, res) {
-	var spotId= req.params.conditions;
-	db.Surfspot.remove({currentConditions: spotId}, function(err, surfspots){
+	var spotId= req.params.id;
+	db.Surfspot.remove({_id: spotId}, function(err, surfspots){
 		if(err) {return console.log('remove error' + err);}
-		res.json(console.log("successful delete"));
+		res.render('surfHome');
 	});
 }
 

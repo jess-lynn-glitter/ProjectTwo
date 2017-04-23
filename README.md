@@ -42,4 +42,13 @@ plan of action:
 
 
 
+	--i want to click on a marker and have an infowindow pop up that has a
+	form to enter the name of the spot. and when you hit submit the spot name + lat + lng get saved. does this mean an info window pops up? yes. make it a let so it gets rewritten each time. maybe?  
+
+
+
+4/21:   fixing and finishing up the info windows. putting my crudable routes in there as well. Just need tof igure out how to make an <a> element operate a Delete and a Put route....
+
+
+
 
