@@ -117,6 +117,7 @@ function initMap() {
                   console.log("Success for GET")
               });
                 newSpotForm.close();
+                
             } else {
                 alert("You didn't enter a name, try again");
                 newSpotForm.close();

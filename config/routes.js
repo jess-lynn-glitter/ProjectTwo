@@ -9,6 +9,17 @@ var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 var surfController = require('../controllers/surf');
 
+
+function authenticatedUser(req, res, next) {
+    // If the user is authenticated, then we continue the execution
+    if (req.isAuthenticated()) return next();
+    // Otherwise the request is always redirected to the home page
+    res.redirect('/');
+  }
+
+
+
+
 router.route('/')
   .get(staticsController.home);
 
@@ -26,7 +37,7 @@ router.route("/logout")
 //Logged in routes?
 
 router.route('/surfspots')
-  .get(surfController.getSurfMap) //somethingController.getYourSurfMap)
+  .get(authenticatedUser, surfController.getSurfMap) //somethingController.getYourSurfMap)
 
 router.route('/surfspots')
   .post(surfController.postSurfSpot)

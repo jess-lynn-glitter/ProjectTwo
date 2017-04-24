@@ -65,6 +65,27 @@ the plan for sunday is to read the rubric carefully. but first, finish your put 
 
 made a put route that works. doing mocha tests now too.
 
+4/24:
+
+finally deployed to heroku. also authenticated the main page so you can't just go to /surfspots and see stuff.
+----
+
+Thus far unsolved problems, many of which can be wrapped up neatly tonight are:
+	-now saving surfspots to "current User", there is a referenced field ready to receive that data.
+	-have newly entered surfspots have an info window immediately on their being created. (either need to do the array thing or just make a new infowindow each time you make that spot that works just for that session? ---but what if more than one spot is made?)
+	-pull in local weather data from NOAA and fill that out in the window as well. shouldn't be too hard, don't even need a data model for that. 
+
+
+
+
+	INSTALLATION INSTRUCTIONS:
+
+	simply download the repo and npm install and you're good :)
+
+
+
+
+
 
 
 
