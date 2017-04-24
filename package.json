@@ -2,7 +2,7 @@
   "name": "Project_Two",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "directories": {
     "test": "tests"
   },
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "app.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
