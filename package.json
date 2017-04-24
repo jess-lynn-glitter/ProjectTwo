@@ -29,6 +29,10 @@
   "devDependencies": {
     "mocha": "^3.2.0"
   },
+  "engines":{
+    "node": "7.9.0",
+    "npm": "4.5.0"
+  },
   "scripts": {
     "test": "mocha",
     "start": "node app.js"
