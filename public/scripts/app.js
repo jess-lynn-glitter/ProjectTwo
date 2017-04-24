@@ -32,6 +32,9 @@ $(document).ready(function(){
 
 
 function initMap() {
+
+    var markerArray = [];
+    
     var bakersBeach = {lat: 41.508354, lng: -71.070333};
     var theBirdSanctuary = {lat: 41.507436, lng: -71.020238};
     var map = new google.maps.Map(document.getElementById('map'), {

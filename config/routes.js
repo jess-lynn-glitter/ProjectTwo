@@ -26,19 +26,19 @@ router.route("/logout")
 //Logged in routes?
 
 router.route('/surfspots')
-.get(surfController.getSurfMap) //somethingController.getYourSurfMap)
+  .get(surfController.getSurfMap) //somethingController.getYourSurfMap)
 
 router.route('/surfspots')
-.post(surfController.postSurfSpot)
+  .post(surfController.postSurfSpot)
 
 router.route('/api/surfspots')
-.get(surfController.getAllSpots)
+  .get(surfController.getAllSpots)
 
 router.route('/api/surfspots/:id')
-.put(surfController.editSpot)
+  .put(surfController.editSpot)
 
 router.route('/api/surfspots/:id')
-.delete(surfController.deleteSpot)
+  .delete(surfController.deleteSpot)
 
 
 module.exports = router
