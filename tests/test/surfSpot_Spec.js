@@ -1,4 +1,4 @@
-var Surfspot= require('../../models/surfSpots');
+var Surfspot = require('../../models/surfSpots');
 var expect = require('chai').expect;
 
 

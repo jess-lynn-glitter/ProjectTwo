@@ -12,7 +12,8 @@ var session      = require('express-session');
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
-app.use(bodyParser()); 
+app.use(bodyParse.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
